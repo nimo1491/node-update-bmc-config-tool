@@ -1,0 +1,39 @@
+{
+  "name": "node-update-bmc-config-tool",
+  "version": "1.0.0",
+  "description": "This tool can read the IP and hostname list from xlsx and then update the BMC config",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "start": "npm run build && NODE_ENV=development node build/index.js",
+    "lint": "eslint src",
+    "pack32": "npm run build && enclose -l info -a x86 -o bin/cUpdateBmcConfigTool_x86 build/index.js",
+    "pack64": "npm run build && enclose -l info -a x64 -o bin/cUpdateBmcConfigTool_x64 build/index.js"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimo1491/node-update-bmc-config-tool.git"
+  },
+  "author": "Nimo Hsieh <nimo1491@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-for-of": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "enclose": "^2.1.0",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "ip": "^1.1.3",
+    "xlsx": "^0.8.0",
+    "yargs": "^4.8.1"
+  }
+}
